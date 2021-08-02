@@ -1,0 +1,68 @@
+{% extends "report/report.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block subbody %}
+  
+    <div class="row justify-content-center">
+        <div class="card mb-4 no-gutters mr-2 justify-content-center" style="width: 90%;">
+            <div class=" card-header border-left-success">
+                รายงานย้อนหลัง
+            </div>
+            <div class="card-body">
+                <form action="/searchReport" class="form-inline">
+                    
+                    <label class="mr-sm-2" for="">จาก</label>
+                    <input class="form-control mr-2" name="date_report_befor" id="date_report_befor" style="width: 30%;" type="date" value="" >
+                  
+                    <label class="mr-sm-2" for="">ถึง</label>
+                    <input class="form-control mr-2" name="date_report_after" id="date_report_after" style="width: 30%;" type="date" value="" >
+                  
+                    <button type="submit" class="btn btn-primary">ค้นหา</button>
+                </form>
+
+                <table class="table">
+                    <thead class="thead-dark">
+                    
+                        <tr>
+                            <!-- <th scope="col">#</th> -->
+                            <th scope="col">วันที่</th>
+                            <th scope="col">งานที่ทำ</th>
+                        </tr>
+                  
+                    </thead>
+
+                       
+
+                    <tbody>
+                        {%if table == 'main' %}
+                            {%for row in Report%}
+                            <tr>
+                                <th>{{row.0}}</th>
+                                <th>{{row.1}}</th>
+                                <!-- <th>{{row.2}}</th> -->
+                            </tr>
+                            {%endfor%}
+
+                        {%else%}
+                            {%for row in Report%}
+                            <tr>
+                                <th>{{row.0}}</th>
+                                <th>{{row.1}}</th>
+                                <!-- <th>{{row.2}}</th> -->
+                            </tr>
+                        {%endfor%}
+
+                        {%endif%}
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+    
+    
+{%endblock%}

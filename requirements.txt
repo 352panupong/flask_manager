@@ -1,0 +1,11 @@
+Flask
+flaskwebgui
+Flask-JSON
+flask-mysql
+wtforms
+flask_wtf
+flask-login
+Flask-MySQLdb
+paho-mqtt
+Flask-SocketIO
+Flask-MQTT

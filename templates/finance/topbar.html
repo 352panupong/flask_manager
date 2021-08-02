@@ -1,0 +1,51 @@
+{% extends "finance/layout.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block topbar %}
+     <!-- topbar -->
+     <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <!-- top bra serch -->
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >
+                            <a class="nav-link" href="/">dashboard</a>
+                        </div>
+                    </div>
+                </div>
+                    
+                
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >
+                            <a class="nav-link" href="/finance">finance</a>
+                        </div>
+                    </div>
+                </div>
+                  
+                
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >
+                            <a class="nav-link" href="/report">report</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                    
+                
+            </ul>           
+            
+        </div>
+        <div class="row float-right">
+            <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" >
+                    <a class="nav-link" href="/logout">logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}

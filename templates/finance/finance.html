@@ -1,0 +1,87 @@
+{% extends "finance/topbar.html" %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-flid">
+        <!-- page head -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">บัญชีและการเงิน</h1>
+        </div>
+
+        <div class="row">
+            <!-- earnings  -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">รายจ่าย(รายเดือน)</div>
+                                {% for expend in Account%}
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ expend.0 }} บาท</div>      
+                                {%endfor%}
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">รายรับ(รายเดือน)</div>
+                                {%for come in income%}
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{come.0}} บาท</div>
+                                {%endfor%}
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">รวม</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{sum_Acc}} บาท</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">น้ำหนักที่ส่งออกรายเดือน</div>
+                                {%for weight in income %}
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{weight.1}} kg</div>
+                                {%endfor%}
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+{%endblock%}

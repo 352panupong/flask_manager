@@ -1,0 +1,204 @@
+{% extends "finance/topbar.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> 
+{% endblock %}
+
+{% block body%}
+<script type="text/javascript" >
+    function realtime(){
+      $.ajax({
+        url:'/realtime',
+        type:'GET',
+        data: '',
+        success:function(result){
+          data = result.split(" ")
+          document.getElementById('temp_one').innerHTML = data[1];
+          document.getElementById('humid_one').innerHTML = data[3];
+          document.getElementById('temp_two').innerHTML = data[2];
+          document.getElementById('humid_two').innerHTML = data[4];  
+        }
+      });
+    }
+    setInterval(realtime, 10000);  
+    
+</script>
+
+<script type="text/javascript" src="../../static/js/getOne.js"></script>
+<div class="d-sm-flex align-items-center justify-content-between mb-4 text-truncate">
+  <h1 class="h3 mb-0 text-gray-800 text-truncate">Dashboard control</h1>
+</div>
+
+<div class="row">
+  <!-- dorm1 -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title .font-weight-normal" align ="center" >temperature(โรง1)</h5>
+        <p class="card-subtitle mb-2 text-muted" id="temp_one" align ="center" ></p>
+        <!-- <ion-icon name="thermometer-outline"></ion-icon> -->
+        <div class="row" align = "center">
+          <div class="col text-center">
+            <img src="https://img.icons8.com/android/24/000000/temperature.png"/>
+            <!-- <button class="btn btn-success">เปิด</button>
+            <button align = "center" class="btn btn-danger">ปิด</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title" align ="center" >Humidity(โรง1)</h5>
+        <p class="card-subtitle mb-2 text-muted" id="humid_one" align ="center" ></p>
+        <ion-icon name="thermometer-outline"></ion-icon>
+        <div class="row" >
+          <div class="col text-center">
+            <!-- input icon logo -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- end dorm 1 -->
+
+<!-- dorm2 -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title .font-weight-normal" align ="center" >temperature(โรง2)</h5>
+        <p class="card-subtitle mb-2 text-muted" id="temp_two" align ="center" ></p>
+        <!-- <ion-icon name="thermometer-outline"></ion-icon> -->
+        <div class="row" align = "center">
+          <div class="col text-center">
+            <img src="https://img.icons8.com/android/24/000000/temperature.png"/>
+            <!-- <button class="btn btn-success">เปิด</button>
+            <button align = "center" class="btn btn-danger">ปิด</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title" align ="center" >Humidity(โรง2)</h5>
+        <p class="card-subtitle mb-2 text-muted"  align ="center" id="humid_two" ></p>
+        <ion-icon name="thermometer-outline"></ion-icon>
+        <div class="row" >
+          <div class="col text-center">
+              <!-- input icon -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end dorm 2 -->
+  <!-- dorm3 -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title .font-weight-normal" align ="center" >temperature(โรง3)</h5>
+        <h6 class="card-subtitle mb-2 text-muted" align ="center" >30</h6>
+        <!-- <ion-icon name="thermometer-outline"></ion-icon> -->
+        <div class="row" align = "center">
+          <div class="col text-center">
+            <img src="https://img.icons8.com/android/24/000000/temperature.png"/>
+            <!-- <button class="btn btn-success">เปิด</button>
+            <button align = "center" class="btn btn-danger">ปิด</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title" align ="center" >Humidity(โรง3)</h5>
+        <h6 class="card-subtitle mb-2 text-muted" align ="center" >80</h6>
+        <ion-icon name="thermometer-outline"></ion-icon>
+        <div class="row" >
+          <div class="col text-center">
+            <!-- input icon -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- control button -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2" style="width: 37rem;">
+      <div class="card-body">
+        <table class="table table-borderless">
+          <thead class="">
+            <tr class="text-center">
+              <th scope="col">#</th>
+              <th scope="col">โรง1</th>
+              <th scope="col">โรง2</th>
+              <th scope="col">โรงเพาะ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">ระบบน้ำ</th>
+              <td> 
+                <label for="">
+                  <input type="checkbox" class="WaterControlOne" name="WaterControlOne" id="WaterControlOne" value="false" data-toggle="toggle">
+                </label>
+              </td>
+              <td>
+                <label for="">
+                  <input type="checkbox" class="WaterControlTwo" name="WaterControlTwo" id="WaterControlTwo" value="false" data-toggle="toggle">
+                </label>
+              </td>
+              <td>
+                <label for="">
+                  <input type="checkbox" class="WaterControlThree" name="WaterControlThree" id="WaterControlThree" value="false" data-toggle="toggle">
+                </label>
+              </td>
+
+              
+            </tr>
+
+            <tr>
+              <th scope="row">ระบบพ่นหมอก</th>
+              <td> 
+                <label for="">
+                  <input type="checkbox" class="FogControlOne" name="FogControlOne" id="FogControlOne" value="false" data-toggle="toggle">
+                </label>
+                
+              </td>
+              <td>
+                <label for="">
+                  <input type="checkbox" class="FogControlTwo" name="FogControlTwo" id="FogControlTwo" value="false" data-toggle="toggle">
+                </label>
+              </td>
+              <td>
+                <label for="">
+                  <input type="checkbox" class="FogControlThree" name="FogControlThree" id="FogControlThree" value="false" data-toggle="toggle">
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- เปิด ปิด ระบบน้ำ ถ้ากรณีทีเชื่อม MQTT ได้ แต่ถ้าเชื่อมไม่ไดให้ส่งค่าไปที่ html แทน -->
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+
+
+
+  
+  
+{% endblock %}
+
